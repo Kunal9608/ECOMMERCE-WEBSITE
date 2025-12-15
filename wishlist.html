@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Wishlist – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="wish.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <!-- Top Navigation – EXACTLY like itemdash.html -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <!-- Left: Back button (replaces logo) -->
+      <button class="back-btn" onclick="window.location.href='itemdash.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+
+      <!-- Center: Empty (to match itemdash spacing) -->
+      <div class="nav-search" style="flex: 1; padding: 0 60px; text-align: center;">
+        <h2 class="wishlist-page-title">My Wishlist</h2>
+      </div>
+
+      <!-- Right: Theme, Cart, Profile — identical to itemdash -->
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="cart-icon" onclick="window.location.href='cart.html'">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge">0</span>
+        </div>
+        <div class="user-initial" id="userInitial">U</div>
+        <div class="user-menu" id="userMenu">
+          <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          <a href="orders.html"><i class="fas fa-box"></i> Orders</a>
+          <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+          <a href="support.html"><i class="fas fa-headset"></i> Support</a>
+          <a href="#" class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wishlist-main">
+    <div class="empty-wishlist" id="emptyWishlist">
+      <i class="fas fa-heart-broken"></i>
+      <h3>Your wishlist is empty</h3>
+      <p>Add items you love – they’ll show up here!</p>
+      <button class="cta-btn" onclick="window.location.href='itemdash.html'">
+        Start Shopping
+      </button>
+    </div>
+
+    <div class="wishlist-grid" id="wishlistGrid"></div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/wish.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <!-- Top Navigation – Perfectly matches itemdash.html -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <button class="back-btn" onclick="window.location.href='itemdash.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <div class="nav-search" style="flex: 1; padding: 0 60px; text-align: center;">
+        <h2 class="page-title">Profile</h2>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="cart-icon" onclick="window.location.href='cart.html'">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge">0</span>
+        </div>
+        <div class="user-initial" id="userInitial">U</div>
+        <div class="user-menu" id="userMenu">
+          <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          <a href="orders.html"><i class="fas fa-box"></i> Orders</a>
+          <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+          <a href="support.html"><i class="fas fa-headset"></i> Support</a>
+          <a href="#" class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="profile-main">
+    <div class="profile-header">
+      <div class="header-bg"></div>
+      <div class="header-content">
+        <div class="avatar-upload">
+          <div class="avatar-preview">
+            <img id="avatarImg" src="" alt="Avatar" />
+            <div class="avatar-placeholder" id="avatarPlaceholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <label class="upload-btn">
+            <i class="fas fa-camera"></i>
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+          </label>
+        </div>
+        <div class="user-meta">
+          <h1 id="displayName">—</h1>
+          <p id="displayEmail">—</p>
+          <div class="badges">
+            <span class="badge role" id="userRoleBadge">Customer</span>
+            <span class="badge verified"><i class="fas fa-check"></i> Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-body">
+      <div class="info-cards">
+        <!-- Personal Info -->
+        <div class="card">
+          <div class="card-icon persona"><i class="fas fa-user"></i></div>
+          <h3>Personal Info</h3>
+          <div class="info-item">
+            <span class="label">Full Name</span>
+            <span class="value" id="fullName">—</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Username</span>
+            <span class="value" id="username">—</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Email</span>
+            <span class="value" id="email">—</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Phone</span>
+            <span class="value" id="phone">Not provided</span>
+          </div>
+        </div>
+
+        <!-- Security & Activity -->
+        <div class="card">
+          <div class="card-icon security"><i class="fas fa-shield-alt"></i></div>
+          <h3>Security & Activity</h3>
+          <div class="info-item">
+            <span class="label">Account Type</span>
+            <span class="value" id="role">—</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Last Login</span>
+            <span class="value" id="lastLogin">—</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Wishlist Items</span>
+            <span class="value" id="wishlistCount">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="action-grid">
+        <button class="action-card" id="editProfileBtn">
+          <i class="fas fa-edit"></i>
+          <span>Edit Profile</span>
+        </button>
+        <button class="action-card" id="changePasswordBtn">
+          <i class="fas fa-lock"></i>
+          <span>Change Password</span>
+        </button>
+        <button class="action-card" id="viewOrdersBtn">
+          <i class="fas fa-box"></i>
+          <span>My Orders</span>
+        </button>
+        <button class="action-card danger" id="deleteAccountBtn">
+          <i class="fas fa-user-minus"></i>
+          <span>Delete Account</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/profile.js"></script>
+</body>
+</html>

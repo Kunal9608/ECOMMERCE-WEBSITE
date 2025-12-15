@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="payment.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <nav class="top-nav payment-nav">
+    <div class="nav-container">
+      <button class="back-btn" onclick="window.location.href='checkout.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2 class="page-title">PAYMENT</h2>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="payment-main">
+    <div class="payment-container">
+      <div class="section">
+        <h3><i class="fas fa-credit-card"></i> Select Payment Method</h3>
+        <div class="payment-options" id="paymentOptions"></div>
+      </div>
+
+      <div class="section">
+        <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+        <div class="summary-table" id="orderSummaryTable"></div>
+      </div>
+
+      <div class="proceed-section">
+        <button class="btn-primary" id="placeOrderBtn">
+          <i class="fas fa-lock"></i> Place Order
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/payment.js"></script>
+</body>
+</html>

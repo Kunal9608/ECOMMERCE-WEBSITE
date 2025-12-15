@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <nav class="top-nav cart-nav">
+    <div class="nav-container">
+      <button class="back-btn" onclick="window.location.href='itemdash.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2 class="page-title" id="cartTitle">CART</h2>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="cart-main">
+    <div class="cart-header">
+      <div class="header-content">
+        <h1>Your Shopping Cart</h1>
+        <p>Review your items before checkout</p>
+      </div>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-items-container" id="cartItems"></div>
+
+      <div class="order-summary" id="orderSummary">
+        <div class="summary-card">
+          <h3>Order Summary</h3>
+          
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0</span>
+          </div>
+          
+          <div class="discount-input">
+            <input type="text" id="discountCode" placeholder="Enter discount code" />
+            <button id="applyDiscount">Apply</button>
+          </div>
+          
+          <div class="summary-item discount-row" id="discountRow" style="display: none;">
+            <span>Discount</span>
+            <span id="discountAmount">—</span>
+          </div>
+          
+          <div class="summary-item">
+            <span>Shipping</span>
+            <span id="shipping">Free</span>
+          </div>
+          
+          <div class="summary-item">
+            <span>Taxes (5%)</span>
+            <span id="taxes">₹0</span>
+          </div>
+          
+          <div class="summary-divider"></div>
+          
+          <div class="summary-item total">
+            <span>Total</span>
+            <span id="total">₹0</span>
+          </div>
+          
+          <button class="btn-primary checkout-btn" id="proceedToCheckoutBtn">
+            Proceed to Checkout
+          </button>
+          <button class="btn-outline continue-btn" onclick="window.location.href='itemdash.html'">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-cart" id="emptyCart">
+      <div class="empty-icon">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+      <h3>Your Cart is Empty</h3>
+      <p>Add some amazing products to your cart!</p>
+      <button class="btn-primary" onclick="window.location.href='itemdash.html'">
+        Start Shopping
+      </button>
+    </div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="checkout.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <nav class="top-nav checkout-nav">
+    <div class="nav-container">
+      <button class="back-btn" onclick="window.location.href='cart.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2 class="page-title">CHECKOUT</h2>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="checkout-main">
+    <div class="checkout-container">
+      <div class="section">
+        <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+        <div class="address-options" id="addressOptions">
+          <!-- Dynamically populated -->
+        </div>
+        <button class="add-address-btn" id="toggleAddressForm">
+          <i class="fas fa-plus-circle"></i> Add New Address
+        </button>
+      </div>
+
+      <div class="address-form" id="addressForm" style="display: none;">
+        <h3 id="formTitle">Enter New Address</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input type="text" id="fullName" placeholder="Enter your full name" />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number <span>*</span></label>
+            <div class="phone-input-container">
+              <span class="country-code">+91</span>
+              <input type="tel" id="phone" placeholder="12345 67890" maxlength="10" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Building / House Name <span>*</span></label>
+            <input type="text" id="building" placeholder="Apartment, suite, villa, etc." autocomplete="off" />
+            <div class="suggestions" id="suggestions"></div>
+          </div>
+          <div class="form-group">
+            <label>Area / Locality <span>*</span></label>
+            <input type="text" id="area" placeholder="Street, colony, area" />
+          </div>
+          <div class="form-group">
+            <label>Pincode <span>*</span></label>
+            <input type="text" id="pincode" placeholder="6-digit pincode" maxlength="6" />
+            <div class="pincode-status" id="pincodeStatus"></div>
+          </div>
+          <div class="form-group">
+            <label>City <span>*</span></label>
+            <input type="text" id="city" placeholder="City (auto-filled)" readonly />
+          </div>
+          <div class="form-group">
+            <label>State <span>*</span></label>
+            <input type="text" id="state" placeholder="State (auto-filled)" readonly />
+          </div>
+          <div class="form-group">
+            <label>Country <span>*</span></label>
+            <input type="text" id="country" value="India" readonly />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-outline" id="cancelFormBtn">Cancel</button>
+          <button class="btn-primary" id="saveAddressBtn">Save Address</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+        <div class="summary-table" id="orderSummaryTable">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <div class="proceed-section">
+        <button class="btn-primary" id="proceedToPaymentBtn">
+          <i class="fas fa-lock"></i> Proceed to Payment
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/checkout.js"></script>
+</body>
+</html>

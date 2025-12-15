@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders – ShopNest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="orders.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem('user')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <nav class="top-nav orders-nav">
+    <div class="nav-container">
+      <button class="back-btn" onclick="window.location.href='itemdash.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2 class="page-title">ORDERS</h2>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggleBtn">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="orders-main">
+    <div class="orders-container" id="ordersContainer">
+      <!-- Orders rendered by JS -->
+    </div>
+
+    <div class="empty-orders" id="emptyOrders">
+      <div class="empty-icon">
+        <i class="fas fa-box-open"></i>
+      </div>
+      <h3>No Orders Yet</h3>
+      <p>Your orders will appear here once placed.</p>
+      <button class="btn-primary" onclick="window.location.href='itemdash.html'">
+        Start Shopping
+      </button>
+    </div>
+  </main>
+
+  <div id="toastContainer"></div>
+  <script src="scripts/scriptcust.js"></script>
+  <script src="scripts/orders.js"></script>
+</body>
+</html>

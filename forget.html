@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reset Password – ShopNest</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- PAGE SWITCH ANIMATION -->
+  <style>
+    .page-enter { opacity:0; transform:translateY(20px); transition:0.5s; }
+    .page-enter-active { opacity:1; transform:translateY(0); }
+    .page-exit { opacity:1; transform:translateY(0); transition:0.4s; }
+    .page-exit-active { opacity:0; transform:translateY(-20px); }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body class="auth-page">
+
+<script>
+  localStorage.setItem('theme', 'light');
+</script>
+
+<div class="auth-container">
+
+  <!-- LEFT FORM -->
+  <div class="auth-form-section">
+
+    <h2>Reset Password</h2>
+    <p>Enter your Gmail and create a new password</p>
+
+    <form id="resetPasswordForm" class="auth-form">
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <input type="email" id="email" placeholder=" " required />
+        <label for="email">Registered Email</label>
+        <i class="fas fa-envelope input-icon"></i>
+      </div>
+
+      <!-- NEW PASSWORD -->
+      <div class="input-group password-container">
+        <input type="password" id="newPassword" placeholder=" " required />
+        <label for="newPassword">New Password</label>
+        <i class="fas fa-key input-icon"></i>
+        <span class="toggle-password" id="toggleNewPassword">
+          <i class="far fa-eye"></i>
+        </span>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="input-group password-container">
+        <input type="password" id="confirmPassword" placeholder=" " required />
+        <label for="confirmPassword">Confirm Password</label>
+        <i class="fas fa-lock input-icon"></i>
+        <span class="toggle-password" id="toggleConfirmPassword">
+          <i class="far fa-eye"></i>
+        </span>
+      </div>
+
+      <!-- OTP (JS COMPATIBLE STRUCTURE) -->
+      <div class="input-group">
+        <input type="text" id="otp" placeholder=" " maxlength="5" inputmode="numeric" />
+        <label for="otp">Enter OTP</label>
+        <i class="fas fa-shield-alt input-icon"></i>
+        <button type="button" class="get-otp-btn" id="getOtpBtn">Get OTP</button>
+      </div>
+
+      <div class="resend-timer" id="resendTimer" style="display:none;">
+        Resend in <span id="countdown">30</span>s
+      </div>
+
+      <button type="submit" class="login-btn">
+        Change Password
+      </button>
+
+    </form>
+
+    <div class="links">
+      <a href="login.html">← Back to Login</a>
+    </div>
+  </div>
+
+  <!-- RIGHT IMAGE (PREMIUM) -->
+  <div class="auth-illustration">
+    <div style="text-align:center; max-width:300px;">
+      <i class="fa-solid fa-shield-halved"
+        style="font-size:70px;margin-bottom:20px;text-shadow:0 5px 25px rgba(0,0,0,0.25);"></i>
+      <h3>Securely Reset Your Password</h3>
+      <p style="font-size:15px;margin-top:15px;opacity:0.85;line-height:1.6;">
+        Protect your account and regain access instantly using verified OTP recovery.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div id="toastContainer"></div>
+
+<script>
+  emailjs.init("XdjVi9bwwdY2h9WHD");
+</script>
+
+<!-- PAGE SWITCH WITH ANIMATION -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  body.classList.add("page-enter");
+  requestAnimationFrame(() => body.classList.add("page-enter-active"));
+
+  document.querySelectorAll("a").forEach(a => {
+    const href = a.getAttribute("href");
+    if (href && href.endsWith(".html")) {
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        body.classList.add("page-exit", "page-exit-active");
+        setTimeout(() => { window.location.href = href; }, 350);
+      });
+    }
+  });
+});
+</script>
+
+<script src="scripts/scriptlogin.js"></script>
+
+</body>
+</html>
