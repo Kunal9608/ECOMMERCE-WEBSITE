@@ -1,11 +1,9 @@
 {
-  "name": "kunal-site",
+  "name": "kunal-ecommerce",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "build": "echo 'static site'"
-  },
+  "scripts": {},
   "engines": {
-    "node": ">=18"
+    "node": "18.x"
   }
 }
