@@ -2,8 +2,10 @@
   "name": "kunal-ecommerce",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
   "engines": {
     "node": "24.x"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
   }
 }
